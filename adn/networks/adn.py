@@ -15,7 +15,7 @@ class Encoder(nn.Module):
             padding=3, pad='reflect', norm=down_norm, activ='relu')
         
         output_ch = base_ch
-        for i in range(1, num_down+1):
+        for i in range(1, num_down + 1):
             m = ConvolutionBlock(
                 in_channels=output_ch, out_channels=output_ch * 2, kernel_size=4,
                 stride=2, padding=1, pad='reflect', norm=down_norm, activ='relu')
@@ -27,7 +27,7 @@ class Encoder(nn.Module):
                 ResidualBlock(output_ch, pad='reflect', norm=res_norm, activ='relu'))
 
         self.layers = [getattr(self, "conv{}".format(i)) for i in range(num_down+1)] + \
-            [getattr(self, "res{}".format(i)) for i in range(num_residual)]
+                      [getattr(self, "res{}".format(i)) for i in range(num_residual)]
         
     def forward(self, x):
         sides = []
@@ -154,7 +154,7 @@ class ADN(nn.Module):
         code, _ = self.encoder_high(x_high) # encode high quality image
         y = self.decoder_art_low(code, sides[-self.n:])  # decode image with artifact (low quality)
         return y
-
+"""
     def forward_yh_test(self, x_low, x_high):
         con_low, _ = self.encoder_low(x_low)
         _, sty_low = self.encoder_art_low(x_low)
@@ -176,7 +176,7 @@ class ADN(nn.Module):
         x_low_high = self.decoder_art_high(con_low, sty_high[-self.n:])
         x_high_low = self.decoder_art_low(con_high, sty_low[-self.n:])
         return x_low_recon, x_high_recon, x_low_high, x_high_low
-
+"""
 class NLayerDiscriminator(nn.Module):
     """Defines a PatchGAN discriminator
     

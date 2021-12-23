@@ -123,7 +123,7 @@ class BaseTrain(Base):
         for name in names:
             w = self.wgts[name]
             if type(w[0]) is str: w = [w]
-            for p in w: wgt = wgt + p[1]
+            for p in w: wgt += p[1]
         return wgt
 
     def _setup_learn(self, params, opt_type="adam"):
@@ -175,8 +175,6 @@ class BaseTrain(Base):
 
     def _merge_loss(self, *losses):
         losses = [(loss._loss if hasattr(loss, '_loss') else loss) for loss in losses]
-        # for loss in losses:
-        #     print((loss.items()))
         losses = sum([list(loss.items()) for loss in losses], [])
         loss = OrderedDict(losses)
 

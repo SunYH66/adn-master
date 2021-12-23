@@ -1,0 +1,125 @@
+bme_gpu05
+start on 2021年 10月 25日 星期一 21:26:05 CST
+================= Options =================
+!!python/object:adn.utils.misc.EasyDict
+opt:
+  batch_size: 4
+  checkpoints_dir: runs/
+  dataset:
+    dataset_type: nature_image
+    deep_lesion:
+      blacklist: data/deep_lesion/blacklist.json
+      dataset_dir: data/deep_lesion/train
+      load_mask: false
+      normalize: true
+      partial_holdout: 0.5
+      random_flip: true
+      random_mask: true
+    nature_image:
+      a_dir: ../data/train/trainB
+      b_dir: ../data/train/trainA
+      crop_size: 256
+      load_size: 256
+      preprocess: resize_and_crop
+      random_flip: true
+    spineweb:
+      a_dir: ../data/train/trainB
+      a_range:
+      - -1000.0
+      - 2000.0
+      b_dir: ../data/train/trainA
+      b_range:
+      - -1000.0
+      - 2000.0
+      random_flip: true
+  gpu_ids: '1'
+  last_epoch: last
+  learn:
+    beta1: 0.9
+    beta2: 0.999
+    gamma: 0.5
+    lr: 0.0001
+    step_size: 100000.0
+    weight_decay: 0.0001
+  loss:
+    gt_art: true
+    wgts:
+      art:
+      - l1
+      - 0.0
+      chl:
+      - l1
+      - 40.0
+      clh:
+      - l1
+      - 40.0
+      gh:
+      - gh
+      - 10.0
+      gl:
+      - gl
+      - 10.0
+      hh:
+      - l1
+      - 1.0
+      hlh:
+      - l1
+      - 0.0
+      lh:
+      - l1
+      - 0.0
+      lhl:
+      - l1
+      - 0.0
+      ll:
+      - l1
+      - 1.0
+      shl:
+      - l1
+      - 10.0
+      slh:
+      - l1
+      - 10.0
+  metrics_step: 1
+  model:
+    adn:
+      base_ch: 64
+      down_norm: instance
+      fuse: true
+      input_ch: 1
+      num_down: 2
+      num_residual: 3
+      num_sides: 2
+      res_norm: instance
+      shared_decoder: false
+      up_norm: layer
+    d_type: nlayer
+    g_type: adn
+    nlayer:
+      input_nc: 1
+      n_layers: 4
+      ndf: 64
+      norm_layer: instance
+  num_epochs: 500
+  num_workers: 4
+  print_step: 1
+  save_step: 10
+  use_gpu: true
+  visual_window:
+  - 0.0
+  - 1.0
+  visualize_step: 100
+  window_size: 100
+===========================================
+[Epoch 9] Saving runs/nature_image/net_9.pt
+[Epoch 19] Saving runs/nature_image/net_19.pt
+[Epoch 29] Saving runs/nature_image/net_29.pt
+[Epoch 39] Saving runs/nature_image/net_39.pt
+[Epoch 49] Saving runs/nature_image/net_49.pt
+[Epoch 59] Saving runs/nature_image/net_59.pt
+[Epoch 69] Saving runs/nature_image/net_69.pt
+[Epoch 79] Saving runs/nature_image/net_79.pt
+[Epoch 89] Saving runs/nature_image/net_89.pt
+[Epoch 99] Saving runs/nature_image/net_99.pt
+[Epoch 109] Saving runs/nature_image/net_109.pt
+[Epoch 119] Saving runs/nature_image/net_119.pt

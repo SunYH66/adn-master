@@ -1,8 +1,8 @@
 # ADN default configs
-batch_size: 3
-num_workers: 4
+batch_size: 2
+num_workers: 2
 use_gpu: True
-gpu_ids: '0'
+gpu_ids: '0,3'
 checkpoints_dir: runs/ # a folder that records all the training and testing results
 last_epoch: last
 num_epochs: 500

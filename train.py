@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # Get ADN options
     opts = get_config(args.default_config)
     run_opts = get_config(args.run_config)
-    # os.environ["CUDA_VISIBLE_DEVICES"] = opts['gpu_ids']
+    os.environ["CUDA_VISIBLE_DEVICES"] = opts['gpu_ids']
     if args.run_name in run_opts and "train" in run_opts[args.run_name]:
         run_opts = run_opts[args.run_name]["train"]
         update_config(opts, run_opts)

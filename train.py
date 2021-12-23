@@ -15,8 +15,8 @@ if __name__ == "__main__":
     # Parse command line options
     parser = argparse.ArgumentParser(description="Train an artifact disentanglement network")
     parser.add_argument("--run_name", default="nature_image", help="name of the run")
-    parser.add_argument("--default_config", default="../config/adn.yaml", help="default configs")
-    parser.add_argument("--run_config", default="../runs/adn.yaml", help="run configs")
+    parser.add_argument("--default_config", default="./config/adn_default.yaml", help="default configs")
+    parser.add_argument("--run_config", default="./config/adn.yaml", help="run configs")
     args = parser.parse_args()
 
     # Get ADN options

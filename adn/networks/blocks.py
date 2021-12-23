@@ -43,10 +43,10 @@ norm_dict = dict(
 
 activ_dict = dict(
       none = lambda: lambda x: x,
-      relu = lambda: nn.ReLU(inplace=False),
-     lrelu = lambda: nn.LeakyReLU(0.2, inplace=False),
+      relu = lambda: nn.ReLU(inplace=True),
+     lrelu = lambda: nn.LeakyReLU(0.2, inplace=True),
      prelu = lambda: nn.PReLU(),
-      selu = lambda: nn.SELU(inplace=False),
+      selu = lambda: nn.SELU(inplace=True),
       tanh = lambda: nn.Tanh())
 
 

@@ -1,8 +1,8 @@
 from adn.utils import Logger
 from adn.tester import Tester
 from adn.models import ADNTest
-from skimage.measure import compare_ssim as ssim
-from skimage.measure import compare_psnr as psnr
+# from skimage.measure import compare_ssim as ssim
+# from skimage.measure import compare_psnr as psnr
 
 
 class ADNTester(Tester):
@@ -49,7 +49,7 @@ class ADNTester(Tester):
 
     def get_visuals(self, n=8):
         lookup = [
-            ("l", "img_low"), ("ll", "pred_ll"), ("lh", "pred_lh"),
+            ("l", "img_low"), ("ll", "pred_ll"), ("lh", "pred_lh"), ("de_enh", "de_enh"),
             ("h", "img_high"), ("hl", "pred_hl"), ("hh", "pred_hh")]
         visual_window = self.opts.visual_window
        
@@ -65,8 +65,8 @@ class ADNTester(Tester):
     def get_logger(self, opts):
         self.logger = Logger(self.run_dir, self.epoch, self.run_name)
         self.logger.add_iter_visual_log(self.get_visuals, 1, "test_visuals")
-        self.logger.add_metric_log(self.get_pairs,
-            (("ssim", self.get_metric(ssim)), ("psnr", self.get_metric(psnr))), opts.metrics_step)
+        # self.logger.add_metric_log(self.get_pairs,
+        #     (("ssim", self.get_metric(ssim)), ("psnr", self.get_metric(psnr))), opts.metrics_step)
 
         return self.logger
 

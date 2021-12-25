@@ -124,13 +124,14 @@ class Logger(object):
 
             if hasattr(self, 'iter_visual_fcn') and it % self.iter_visual_freq == 0:
                 for k, v in self.iter_visual_fcn().items():
-                    # v = v.squeeze().cpu().detach().numpy()
+                    v = v.detach().cpu().numpy()
+                    # print(v.shape)
                     iter_visual_dir = path.join(self.log_dir, self.iter_visual_name)
                     if not path.isdir(iter_visual_dir): os.makedirs(iter_visual_dir)
                     visual_file = path.join(iter_visual_dir,
-                        "epoch{}_iter{}_{}.png".format(self.epoch, it, k))
-                    # sitk.WriteImage(sitk.GetImageFromArray(v[0, ...]), visual_file)
-                    Image.fromarray(v).convert('RGB').save(visual_file)
+                        "epoch{}_iter{}_{}.nii.gz".format(self.epoch, it, k))
+                    sitk.WriteImage(sitk.GetImageFromArray(v), visual_file)
+                    # Image.fromarray(v).convert('RGB').save(visual_file)
 
             if hasattr(self, 'pair_fcn') and it % self.metrics_freq == self.metrics_freq - 1:
                 pairs, name = self.pair_fcn()

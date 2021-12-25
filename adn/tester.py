@@ -17,8 +17,8 @@ class Tester(object):
         self.description = description
 
     def parse_args(self):
-        default_config = path.join(self.project_dir, "config", self.name + ".yaml")
-        run_config = path.join(self.project_dir, "runs", self.name + ".yaml")
+        default_config = path.join(self.project_dir, "config", 'adn_default'+ ".yaml")
+        run_config = path.join(self.project_dir, "config", 'adn' + ".yaml")
 
         parser = argparse.ArgumentParser(description=self.description)
         parser.add_argument("run_name", help="name of the run")

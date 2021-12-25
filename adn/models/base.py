@@ -1,4 +1,7 @@
+import os.path
+
 import numpy as np
+import SimpleITK as sitk
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -27,16 +30,17 @@ class Base(nn.Module):
             #     print('ddd')
             return (d.to(device) for d in data)
 
-    def _get_visuals(self, lookup, n, func=None, normalize=True):
+    def _get_visuals(self, lookup, n, func=None, normalize=False):
         if func is None: func = lambda x: x
         pairs = [(t, func(getattr(self, k)[:n])) for t, k in lookup if hasattr(self, k)]
         tags, images = zip(*pairs)
-        # tags_images_dict = dict()
-        # for i in range(len(tags)):
-        #     tags_images_dict[tags[i]] = images[i]
-        tags, images = "_".join(tags), torch.cat(images)
-        return {tags: self._make_visuals(images, len(pairs), normalize)}
-        # return tags_images_dict
+        tags_images_dict = dict()
+        for i in range(len(tags)):
+            tags_images_dict[tags[i]] = images[i][0, ... ].squeeze()
+        # tags, images = "_".join(tags), torch.cat(images)
+
+        # return {tags: self._make_visuals(images, len(pairs), normalize)}
+        return tags_images_dict
 
     def _get_state_attrs(self):
         '''get the attributes with states (for saving and loading)
@@ -54,7 +58,7 @@ class Base(nn.Module):
                     
         return state_attrs.items()
 
-    def _make_visuals(self, images, n_rows, normalize=True, wide=True):
+    def _make_visuals(self, images, n_rows, normalize=False, wide=True):
         if normalize: images = (images - images.min()) / (images.max() - images.min())
         visuals = make_grid(images, nrow=images.shape[0] // n_rows, normalize=False, padding=2)
         visuals = to_npy(visuals).transpose(1, 2, 0)

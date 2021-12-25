@@ -47,7 +47,7 @@ class ADNTrain(BaseTrain):
         for name in names:
             w = self.wgts[name]
             if type(w[0]) is str: w = [w]
-            for p in w: wgt = wgt + p[1]
+            for p in w: wgt += p[1]
         return wgt
 
     def optimize(self, img_low, img_high):
@@ -187,7 +187,7 @@ class ADNTest(Base):
 
     def forward(self, img_low):
         self.img_low = self._match_device(img_low)
-        self.pred_ll, self.pred_lh = self.model_g.forward1(self.img_low)
+        self.pred_ll, self.pred_lh = self.model_g.forward1(self.img_low, self.img_high)
 
         return  self.pred_ll, self.pred_lh
 
@@ -195,9 +195,10 @@ class ADNTest(Base):
         self.img_low, self.img_high = self._match_device(img_low, img_high)
         self.name = name
 
-        self.pred_ll, self.pred_lh = self.model_g.forward1(self.img_low)
-        self.pred_hl, self.pred_hh = self.model_g.forward2(self.img_low, self.img_high)
-        self.pred_hlh = self.model_g.forward_lh(self.pred_hl)
+        self.pred_ll, self.pred_lh, _, _, _, _, self.con_enh = self.model_g.forward1(self.img_low, self.img_high)
+        self.pred_hl, self.pred_hh, _, _, _, _ = self.model_g.forward2(self.img_low, self.img_high)
+        self.de_enh = self.img_low - self.con_enh
+        # self.pred_hlh = self.model_g.forward_lh(self.pred_hl, )
 
     def get_pairs(self):
         return [
@@ -206,7 +207,8 @@ class ADNTest(Base):
 
     def get_visuals(self, n=8):
         lookup = [
-            ("l", "img_low"), ("ll", "pred_ll"), ("lh", "pred_lh"),
+            ("l", "img_low"), ("ll", "pred_ll"), ("lh", "pred_lh"), ("de_enh", "de_enh"),
             ("h", "img_high"), ("hl", "pred_hl"), ("hh", "pred_hh")]
+        print(len(lookup))
         func = lambda x: x * 0.5 + 0.5
         return self._get_visuals(lookup, n, func, False)

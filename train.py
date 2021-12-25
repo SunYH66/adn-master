@@ -70,7 +70,7 @@ if __name__ == "__main__":
     # Get logger
     logger = Logger(run_dir, start_epoch, args.run_name)
     logger.add_loss_log(model.get_loss, opts["print_step"], opts['window_size'])
-    logger.add_iter_visual_log(model.get_visuals, opts['visualize_step'], "train_visuals")
+    logger.add_iter_visual_log(model.get_visuals, opts['visualize_step'], "train_visuals_save_nii")
     logger.add_save_log(model.save, opts['save_step'])
 
     # Train the model

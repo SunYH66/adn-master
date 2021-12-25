@@ -8,7 +8,7 @@ from torch.nn import functional as F
 from ..utils import get_device
 
 
-def add_gan_loss(model, opts, gan_type="lsgan"):
+def add_gan_loss(model, opts, gan_type="vanilla"):
     """ Add GAN loss to a discriminator (model)
     """
 

@@ -31,12 +31,12 @@ nature_image:
     a_dir: "./data/train/trainB"  # path to your train artifact dataset
     b_dir: "./data/train/trainA" # path to your train no_artifact dataset
   test:
-    batch_size: 8
+    batch_size: 2
     input_ch: 1
     input_nc: 1
     dataset_type: nature_image
-    a_dir: "data/nature_image/test/artifact" # path to your test artifact dataset
-    b_dir: "data/nature_image/test/no_artifact" # path to your test no_artifact dataset
+    a_dir: "./data/test/testB" # path to your test artifact dataset
+    b_dir: "./data/test/testA" # path to your test no_artifact dataset
     random_flip: False
     crop_type: center
     metrics_step: .inf

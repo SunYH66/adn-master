@@ -8,3 +8,8 @@ tqdm>=4.32.1
 torch>=1.0.0
 torchvision>=0.2.1
 googledrivedownloader>=0.4
+
+numpy~=1.19.4
+pillow~=8.1.0
+monai~=0.4.0
+argparse~=1.4.0

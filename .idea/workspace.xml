@@ -6,16 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="325aa450-8ede-405d-b37c-9fa681d07ac7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adn/models/adn.py" beforeDir="false" afterPath="$PROJECT_DIR$/adn/models/adn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adn/models/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/adn/models/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adn/networks/losses.py" beforeDir="false" afterPath="$PROJECT_DIR$/adn/networks/losses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adn/tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/adn/tester.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adn/utils/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/adn/utils/log.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/adn.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/adn.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/adn_default.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/adn_default.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adn/utils/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/adn/utils/preprocessing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +22,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1xZ0ykijhWNoS9GtZXtaJEXCc4u" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -157,7 +156,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630547559309</updated>
-      <workItem from="1640186058503" duration="90957000" />
+      <workItem from="1640186058503" duration="94032000" />
     </task>
     <servers />
   </component>

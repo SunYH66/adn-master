@@ -125,7 +125,6 @@ class Logger(object):
             if hasattr(self, 'iter_visual_fcn') and it % self.iter_visual_freq == 0:
                 for k, v in self.iter_visual_fcn().items():
                     v = v.detach().cpu().numpy()
-                    # print(v.shape)
                     iter_visual_dir = path.join(self.log_dir, self.iter_visual_name)
                     if not path.isdir(iter_visual_dir): os.makedirs(iter_visual_dir)
                     visual_file = path.join(iter_visual_dir,

@@ -24,10 +24,6 @@ class Base(nn.Module):
         device = get_device(self)
         if len(data) == 1: return data[0].to(device)
         else:
-            # for d in data:
-            #     print(d.size())
-            #     d.to(device)
-            #     print('ddd')
             return (d.to(device) for d in data)
 
     def _get_visuals(self, lookup, n, func=None, normalize=False):

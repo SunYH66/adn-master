@@ -33,8 +33,8 @@ dataset:
     a_dir: "data/nature_image/train/artifact"
     b_dir: "data/nature_image/train/no_artifact"
     random_flip: True
-    load_size: 256
-    crop_size: 256
+    load_size: 320
+    crop_size: 320
 model:
   g_type: adn
   d_type: nlayer

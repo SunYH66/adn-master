@@ -54,13 +54,13 @@ class ADNTester(Tester):
         visual_window = self.opts.visual_window
        
         def visual_func(x):
-            x = x * 0.5 + 0.5
+            # x = x * 0.5 + 0.5
             x[x < visual_window[0]] = visual_window[0]
             x[x > visual_window[1]] = visual_window[1]
             x = (x - visual_window[0]) / (visual_window[1] - visual_window[0])
             return x
 
-        return self.model._get_visuals(lookup, n, visual_func, False)
+        return self.model._get_visuals(lookup, n)
 
     def get_logger(self, opts):
         self.logger = Logger(self.run_dir, self.epoch, self.run_name)

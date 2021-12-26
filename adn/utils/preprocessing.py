@@ -8,7 +8,7 @@ from matplotlib import pyplot as plt
 
 def prepare_timepoint_data():
     testA_path = sorted(glob.glob('/home/user/program/adn-master/data/test/testA/*.nii.gz'))
-    testB_path = sorted(glob.glob('/home/user/program/adn-master/data/test/testB/*.nii.gz'))
+    testB_path = sorted(glob.glob('/home/user/program/adn-master/runs/nature_image/test_visuals/*_de_enh.nii.gz'))
 
     data_4D_A = np.zeros((320, 320, 22, 6))
     for i in range(len(testA_path)):

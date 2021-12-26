@@ -198,7 +198,7 @@ class ADNTest(Base):
         self.pred_ll, self.pred_lh, _, _, _, _, self.con_enh = self.model_g.forward1(self.img_low, self.img_high)
         self.pred_hl, self.pred_hh, _, _, _, _ = self.model_g.forward2(self.img_low, self.img_high)
         self.de_enh = self.img_low - self.con_enh
-        # self.pred_hlh = self.model_g.forward_lh(self.pred_hl, )
+
 
     def get_pairs(self):
         return [
@@ -207,8 +207,8 @@ class ADNTest(Base):
 
     def get_visuals(self, n=8):
         lookup = [
-            ("l", "img_low"), ("ll", "pred_ll"), ("lh", "pred_lh"), ("de_enh", "de_enh"),
+            ("l", "img_low"), ("ll", "pred_ll"), ("lh", "pred_lh"), ("con_enh", "con_enh"), ("de_enh", "de_enh"),
             ("h", "img_high"), ("hl", "pred_hl"), ("hh", "pred_hh")]
-        print(len(lookup))
-        func = lambda x: x * 0.5 + 0.5
-        return self._get_visuals(lookup, n, func, False)
+        # print(len(lookup))
+        # func = lambda x: x * 0.5 + 0.5
+        return self._get_visuals(lookup, n)

@@ -30,7 +30,7 @@ class NatureImage(torch.utils.data.Dataset):
         data = data * 2.0 - 1.0
         return data
 
-    def get_transform(self, preprocess, random_flip=True, load_size=[256, 256], crop_size=256, crop_type="random", angle=10, convert=True):
+    def get_transform(self, preprocess, random_flip=True, load_size=[320, 320], crop_size=320, crop_type="random", angle=10, convert=True):
         """
         conduct data augmentation
         :param preprocess:

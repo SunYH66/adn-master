@@ -57,12 +57,12 @@ class ADNTrain(BaseTrain):
         # low -> low_l, low -> low_h
         if self._nonzero_weight("gl", "lh", "ll"):
             self.model_dl._clear()
-            self.pred_ll, self.pred_lh, self.c_l, self.s_h, self.c_l_h, self.s_l_h, self.con_enh = self.model_g.forward1(self.img_low, self.img_high)
+            self.pred_ll, self.pred_lh, self.c_l, self.s_h, self.c_l_h, self.s_l_h, self.con_enh_low = self.model_g.forward1(self.img_low, self.img_high)
             self.model_g._criterion["gl"](self.pred_lh, self.img_high)
             self.model_g._criterion["lh"](self.pred_lh, self.img_high)
             self.model_g._criterion["ll"](self.pred_ll, self.img_low)
             self.model_g._criterion["clh"](self.c_l, self.c_l_h)
-            self.de_enh = self.img_low - self.con_enh
+            self.de_enh_low = self.img_low - self.con_enh_low
             dim = np.zeros((3, 4))
             for i in range(len(self.s_h)):
                 for j in range(len(self.s_h[i].size())):
@@ -81,10 +81,11 @@ class ADNTrain(BaseTrain):
         # high -> high_l, high -> high_h
         if self._nonzero_weight("gh", "hh"):
             self.model_dh._clear()
-            self.pred_hl, self.pred_hh, self.c_h, self.s_l, self.c_h_l, self.s_h_l = self.model_g.forward2(self.img_low, self.img_high)
+            self.pred_hl, self.pred_hh, self.c_h, self.s_l, self.c_h_l, self.s_h_l, self.con_enh_high = self.model_g.forward2(self.img_low, self.img_high)
             self.model_g._criterion["gh"](self.pred_hl, self.img_low)
             self.model_g._criterion["hh"](self.pred_hh, self.img_high)
             self.model_g._criterion["chl"](self.c_h, self.c_h_l)
+            self.de_enh_high = self.img_high - self.con_enh_high
             dim = np.zeros((3, 4))
             for i in range(len(self.s_l)):
                 for j in range(len(self.s_l[i].size())):
@@ -139,8 +140,8 @@ class ADNTrain(BaseTrain):
 
     def get_visuals(self, n=8):
         lookup = [
-            ("l", "img_low"), ("ll", "pred_ll"), ("lh", "pred_lh"), ("lhl", "pred_lhl"), ("con_enh", "con_enh"), ("de_enh", "de_enh"),
-            ("h", "img_high"), ("hh", "pred_hh"), ("hl", "pred_hl"), ("hlh", "pred_hlh")]
+            ("l", "img_low"), ("ll", "pred_ll"), ("lh", "pred_lh"), ("lhl", "pred_lhl"), ("con_enh_low", "con_enh_low"), ("de_enh_low", "de_enh_low"),
+            ("h", "img_high"), ("hh", "pred_hh"), ("hl", "pred_hl"), ("hlh", "pred_hlh"), ("con_enh_high", "con_enh_high"), ("de_enh_high", "de_enh_high")]
 
         return self._get_visuals(lookup, n)
 

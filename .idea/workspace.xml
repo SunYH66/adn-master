@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="325aa450-8ede-405d-b37c-9fa681d07ac7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adn/models/adn.py" beforeDir="false" afterPath="$PROJECT_DIR$/adn/models/adn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adn/models/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/adn/models/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adn/datasets/nature_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/adn/datasets/nature_image.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adn/utils/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/adn/utils/log.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adn/utils/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/adn/utils/preprocessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/adn.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/adn.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/adn_default.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/adn_default.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +47,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.preprocessing">
     <configuration name="preprocess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="adn-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -147,10 +144,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.train" />
         <item itemvalue="Python.preprocessing" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.preprocess" />
+        <item itemvalue="Python.train" />
       </list>
     </recent_temporary>
   </component>
@@ -162,7 +159,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630547559309</updated>
-      <workItem from="1640186058503" duration="101871000" />
+      <workItem from="1640186058503" duration="115188000" />
     </task>
     <servers />
   </component>
@@ -171,8 +168,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/adn_master$train.coverage" NAME="train Coverage Results" MODIFIED="1640430532457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/adn_master$test.coverage" NAME="test Coverage Results" MODIFIED="1640507894022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/adn_master$preprocessing.coverage" NAME="preprocessing Coverage Results" MODIFIED="1640385650971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/adn/utils" />
-    <SUITE FILE_PATH="coverage/adn_master$preprocess.coverage" NAME="preprocess Coverage Results" MODIFIED="1640385611194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../DRIT-master/src" />
+    <SUITE FILE_PATH="coverage/adn_master$test.coverage" NAME="test Coverage Results" MODIFIED="1640524994555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/adn_master$preprocessing.coverage" NAME="preprocessing Coverage Results" MODIFIED="1640530899436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/adn/utils" />
+    <SUITE FILE_PATH="coverage/adn_master$preprocess.coverage" NAME="preprocess Coverage Results" MODIFIED="1640524503568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../DRIT-master/src" />
   </component>
 </project>

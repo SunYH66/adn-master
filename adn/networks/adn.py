@@ -86,6 +86,7 @@ class Decoder(nn.Module):
             x = self.layers[i](x)
 
         for i, j in enumerate(range(m - n, m)):
+
             x = self.fuse(x, sides[i], i)
             x = self.layers[j](x)
         return x
@@ -123,8 +124,8 @@ class ADN(nn.Module):
         _, s_h = self.encoder_art_high(x_high)
         c_l_h, _ = self.encoder_high(y2)
         _, s_l_h = self.encoder_art_high(y2)
-        con_enhance = self.decoder_art_low(code)
-        return y1, y2, c_l, s_h[-self.n:], c_l_h, s_l_h[-self.n:], con_enhance
+        con_enhance_low = self.decoder_art_low(code)
+        return y1, y2, c_l, s_h[-self.n:], c_l_h, s_l_h[-self.n:], con_enhance_low
 
     def forward2(self, x_low, x_high):
         # if hasattr(self, "saved") and self.saved[0] is x_low: sides = self.saved[1]
@@ -138,7 +139,8 @@ class ADN(nn.Module):
         _, s_l = self.encoder_art_low(x_low)
         c_h_l, _ = self.encoder_low(y1)
         _, s_h_l = self.encoder_art_low(y1)
-        return y1, y2, c_h, s_l[-self.n:], c_h_l, s_h_l[-self.n:]
+        con_enhance_high = self.decoder_art_low(code)
+        return y1, y2, c_h, s_l[-self.n:], c_h_l, s_h_l[-self.n:], con_enhance_high
 
     def forward_lh(self, x_low, x_high):
         # code, _ = self.encoder_low(x_low)  # encode low quality image

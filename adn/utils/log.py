@@ -128,7 +128,7 @@ class Logger(object):
                     iter_visual_dir = path.join(self.log_dir, self.iter_visual_name)
                     if not path.isdir(iter_visual_dir): os.makedirs(iter_visual_dir)
                     visual_file = path.join(iter_visual_dir,
-                        "epoch{}_iter{}_{}.nii.gz".format(self.epoch, it, k))
+                        "epoch{}_iter{:0>3d}_{}.nii.gz".format(self.epoch, it, k))
                     sitk.WriteImage(sitk.GetImageFromArray(v), visual_file)
                     # Image.fromarray(v).convert('RGB').save(visual_file)
 

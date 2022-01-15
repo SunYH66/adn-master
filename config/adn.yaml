@@ -35,8 +35,8 @@ nature_image:
     input_ch: 1
     input_nc: 1
     dataset_type: nature_image
-    a_dir: "./data/test/testB" # path to your test artifact dataset
-    b_dir: "./data/test/testA" # path to your test no_artifact dataset
+    a_dir: "./data/test_P1/testA" # path to your test artifact dataset
+    b_dir: "./data/test_P1/testB" # path to your test no_artifact dataset
     random_flip: False
     crop_type: center
     metrics_step: .inf

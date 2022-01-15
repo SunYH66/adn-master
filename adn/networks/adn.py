@@ -139,8 +139,8 @@ class ADN(nn.Module):
         _, s_l = self.encoder_art_low(x_low)
         c_h_l, _ = self.encoder_low(y1)
         _, s_h_l = self.encoder_art_low(y1)
-        con_enhance_high = self.decoder_art_low(code)
-        return y1, y2, c_h, s_l[-self.n:], c_h_l, s_h_l[-self.n:], con_enhance_high
+        # con_enhance_high = self.decoder_art_low(code)
+        return y1, y2, c_h, s_l[-self.n:], c_h_l, s_h_l[-self.n:]#, con_enhance_high
 
     def forward_lh(self, x_low, x_high):
         # code, _ = self.encoder_low(x_low)  # encode low quality image

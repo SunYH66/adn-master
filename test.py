@@ -64,7 +64,7 @@ class ADNTester(Tester):
 
     def get_logger(self, opts):
         self.logger = Logger(self.run_dir, self.epoch, self.run_name)
-        self.logger.add_iter_visual_log(self.get_visuals, 1, "testB_visuals")
+        self.logger.add_iter_visual_log(self.get_visuals, 1, "testA_visuals_P1")
         # self.logger.add_metric_log(self.get_pairs,
         #     (("ssim", self.get_metric(ssim)), ("psnr", self.get_metric(psnr))), opts.metrics_step)
 
